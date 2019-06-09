@@ -4,7 +4,6 @@ import Media from 'react-media';
 
 // Components
 import Navigation from './components/Navigation';
-import Search from './components/Search';
 import SearchResults from './components/SearchResults';
 import List from './components/List';
 import CreateList from './components/CreateList';
