@@ -38,7 +38,7 @@ class Item extends Component {
     }
 
     render() {
-        let style = {height: '100px'};
+        let style = {maxHeight: '100px', maxWidth: '100px'};
         return (
             <div>
                 <img src={this.props.item.image} alt={this.props.item.name} style={style} />
