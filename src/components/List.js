@@ -163,7 +163,7 @@ class List extends Component {
                 <Accordion>
                     <Card>
                         <Card.Header>
-                            <Accordion.Toggle as={Button} variant="link" block size="md" eventKey="0">Add New Item</Accordion.Toggle>
+                            <Accordion.Toggle as={Button} variant="link" block size="lg" eventKey="0">Add New Item <i className="fas fa-caret-down"></i></Accordion.Toggle>
                             <Accordion.Collapse eventKey="0">
                                 <Form>
                                     <Form.Group>
@@ -174,7 +174,7 @@ class List extends Component {
                                         <Form.Label>Image</Form.Label>
                                         <Form.Control type="text" placeholder="image" />
                                     </Form.Group>
-                                    <Button type="submit">Create New Item</Button>
+                                    <Button type="submit" block size="lg"><i className="fas fa-plus"></i></Button>
                                 </Form>
                             </Accordion.Collapse>
                         </Card.Header>
