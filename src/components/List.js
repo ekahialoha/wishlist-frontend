@@ -5,8 +5,9 @@ class List extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            list: {},
-            items: []
+            list: {
+                items: []
+            }
         };
     }
 
@@ -16,34 +17,33 @@ class List extends Component {
 
     fetchList = (id) => {
         fetch(`http://localhost:3000/lists/${id}`)
-            .then(foundList => foundList.json())
-            .then(jsonData => this.setList(jsonData))
-    }
-
-    setList = (list) => {
-        const items = list.items.slice();
-        this.setState({
-            list: list,
-            items: items
-        });
-        console.log(this.state);
+            .then(res => res.json())
+            .then(data => {
+                this.setState({
+                    list: data
+                }, () => {
+                    console.log(this.state);
+                });
+            })
+            .catch(err => console.log('View list error: ', err));
     }
 
     render() {
         return (
             <div>
                 <div>
-                    <h2>{this.state.list.name}'s Wishlist</h2>
+                    <h3>{this.state.list.name}'s Wishlist</h3>
                 </div>
                 <div className="itemList">
-                    {this.state.items.map((item, index) => {
+                    {this.state.list.items.map((item, index) => {
                         return (
                             <Item
                                 key={index}
                                 index={index}
                                 item={item}
+                                handlePurchaser={this.handlePurchaser}
                             />
-                        )
+                        );
                     })}
                 </div>
             </div>
@@ -52,14 +52,3 @@ class List extends Component {
 }
 
 export default List;
-
-// {this.state.list.items.map((item, index) => {
-//     return (
-//         <Item
-//             key={index}
-//             index={index}
-//             item={item}
-//             handlePurchaser={this.handlePurchaser}
-//         />
-//     );
-// })}
