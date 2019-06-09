@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Form, Button } from 'react-bootstrap/';
 
 class CreateList extends Component {
     constructor(props) {
@@ -47,12 +48,21 @@ class CreateList extends Component {
         return (
             <div>
                 <h2>Create New List</h2>
-                <form onSubmit={this.handleSubmit}>
-                    Name: <input type="text" placeholder="enter name" onChange={this.handleChanges} value={this.state.name} id="name"/><br/>
-                    Description: <textarea placeholder="description" onChange={this.handleChanges} value={this.state.description} id="description"></textarea><br/>
-                    Image: <input type="text" placeholder="image" onChange={this.handleChanges} value={this.state.image} id="image"/><br/>
-                    <input type="submit" value="Create New List"/>
-                </form>
+                <Form onSubmit={this.handleSubmit}>
+                    <Form.Group>
+                        <Form.Label>Name</Form.Label>
+                        <Form.Control type="text" placeholder="enter name" onChange={this.handleChanges} value={this.state.name} id="name"/>
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Description</Form.Label>
+                        <Form.Control as="textarea" rows="2" placeholder="description" onChange={this.handleChanges} value={this.state.name} id="name"/>
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Image</Form.Label>
+                        <Form.Control type="text" placeholder="image" onChange={this.handleChanges} value={this.state.image} id="image"/>
+                    </Form.Group>
+                    <Button type="submit" size="lg" block>Create WishList</Button>
+                </Form>
             </div>
         );
     }
