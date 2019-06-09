@@ -8,7 +8,9 @@ class CreateList extends Component {
         this.state = {
             name: '',
             description: '',
-            image: ''
+            image: '',
+            redirect: false,
+            createdListID: null
         };
     }
 
@@ -19,16 +21,8 @@ class CreateList extends Component {
     }
 
     handleSubmit = (e) => {
+        e.preventDefault();
         this.handleCreateList(this.state);
-        this.clearForm();
-    }
-
-    clearForm = () => {
-        this.setState({
-            name: '',
-            description: '',
-            image: ''
-        });
     }
 
     handleCreateList = (list) => {
@@ -41,10 +35,20 @@ class CreateList extends Component {
             }
         })
         .then(createdTask => createdTask.json())
+        .then(data => {
+            this.setState({
+                redirect: true,
+                createdListID: data.id
+            }, console.log(data))
+        })
         .catch(err => console.log('create list error: ', err));
     }
 
     render() {
+        if (this.state.redirect === true) {
+            let redirectTo = `/view/${this.state.createdListID}`;
+            return <Redirect to={redirectTo} />
+        }
         return (
             <div>
                 <h2>Create New List</h2>
