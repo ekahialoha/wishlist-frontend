@@ -10,6 +10,7 @@ class Index extends Component {
             }
         };
     }
+
     componentDidMount = () => {
         this.fetchRandomList();
     }
@@ -27,6 +28,30 @@ class Index extends Component {
         .catch(err => console.log('Random fetch error: ', err));
     }
 
+    handlePurchaser = (item, index) => {
+        console.log(JSON.stringify(item));
+        fetch(`http://localhost:3000/items/${item.id}`, {
+            body: JSON.stringify(item),
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+              },
+        })
+        .then(updatedItem => updatedItem.json())
+        .catch(err => console.log('update item error: ', err));
+        this.updateItem(item, index);
+    }
+
+    updateItem(item, index) {
+        this.setState(prevState => {
+            prevState['randomList'].items[index] = item;
+            return {
+                randomList: prevState['randomList']
+            }
+        });
+    }
+
     render() {
         return (
             <div>
@@ -39,6 +64,7 @@ class Index extends Component {
                                     key={index}
                                     index={index}
                                     item={item}
+                                    handlePurchaser={this.handlePurchaser}
                                 />);
                     })}
                 </div>
