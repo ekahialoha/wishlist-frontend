@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Button from 'react-bootstrap/Button';
 
 class Item extends Component {
     constructor(props) {
@@ -12,14 +13,16 @@ class Item extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        let item = Object.assign(this.props.item);
-        item.purchased = true;
-        item.purchased_by = this.state.name;
-        this.props.handlePurchaser(item, this.props.index);
-        this.setState({
-            showForm: false,
-            name: ''
-        });
+        if (this.state.name) {
+            let item = Object.assign(this.props.item);
+            item.purchased = true;
+            item.purchased_by = this.state.name;
+            this.props.handlePurchaser(item, this.props.index);
+            this.setState({
+                showForm: false,
+                name: ''
+            });
+        }
     }
 
     handleChanges = (e) => {
@@ -49,11 +52,11 @@ class Item extends Component {
                                 value={this.state.name}
                                 placeholder="Enter your Name"
                             />
-                            <input type="submit" value="Go" />
+                            <Button type="submit">Go</Button>
                         </form>
-                        <button onClick={this.handleClick}>Cxl</button>
+                        <Button onClick={this.handleClick}>Cxl</Button>
                     </React.Fragment> :
-                    <button onClick={this.handleClick}>Gift?</button>
+                    <Button onClick={this.handleClick}>Gift?</Button>
                 }
             </div>
         );
