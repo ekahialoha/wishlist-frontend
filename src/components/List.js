@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Item from './Item';
 import { Redirect } from 'react-router-dom';
+import { Form, Button } from 'react-bootstrap';
 
 class List extends Component {
     constructor(props) {
@@ -10,7 +11,9 @@ class List extends Component {
                 items: []
             },
             random: false,
-            redirect: false
+            redirect: false,
+            editing: false,
+            newName: ''
         };
     }
 
@@ -47,7 +50,6 @@ class List extends Component {
     }
 
     handlePurchaser = (item, index) => {
-        console.log(JSON.stringify(item));
         fetch(`http://localhost:3000/items/${item.id}`, {
             body: JSON.stringify(item),
             method: 'PUT',
@@ -61,7 +63,7 @@ class List extends Component {
         this.updateItem(item, index);
     }
 
-    updateItem(item, index) {
+    updateItem = (item, index) => {
         this.setState(prevState => {
             prevState['list'].items[index] = item;
             return {
@@ -81,6 +83,53 @@ class List extends Component {
         })
     }
 
+    toggleEditing = () => {
+        this.setState({
+            editing: !this.state.editing
+        });
+    }
+
+    renderEditForm = () => {
+        return (
+            <div>
+                <Form onSubmit={this.handleEditListName}>
+                    <Form.Group>
+                        <Form.Label>Edit Name</Form.Label>
+                        <Form.Control type="text" placeholder={this.state.list.name} value={this.state.name} onChange={this.handleChanges}/>
+                    </Form.Group>
+                    <Button type="submit">Edit</Button>
+                </Form>
+                <i className="far fa-window-close" onClick={this.toggleEditing}></i>
+            </div>
+        )
+    }
+
+    handleEditListName = () => {
+        let list = Object.assign(this.state.list);
+        list.name = this.state.newName;
+        fetch(`http://localhost:3000/lists/${this.state.list.id}`, {
+            body: JSON.stringify(list),
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(updatedList => updatedList.json())
+        .then(jsonData => {
+            this.setState({
+                list: jsonData,
+                newName: ''
+            });
+        });
+    }
+
+    handleChanges = (e) => {
+        this.setState({
+            newName: e.target.value
+        });
+    }
+
     render() {
         let style = {maxHeight: '50px', maxWidth: '50px', borderRadius: '50%'};
 
@@ -92,9 +141,9 @@ class List extends Component {
             <div>
                 <div>
                     {this.state.random ? <h2>Featured Wishlist</h2> : '' }
-                    <img src={this.state.list.image} style={style}/>
-                    <h3>{this.state.list.name}</h3>
-                    <i className="fas fa-edit"></i>
+                    <img src={this.state.list.image} alt={this.state.list.name} style={style}/>
+                    {this.state.editing ? this.renderEditForm() : <h3>{this.state.list.name}</h3>}
+                    {this.state.editing ? '' : <i className="fas fa-edit" onClick={this.toggleEditing}></i>}
                     <i className="far fa-trash-alt" onClick={this.handleDelete}></i>
                 </div>
                 {this.state.list.items ?
@@ -111,7 +160,6 @@ class List extends Component {
                         })}
                     </div> : ''
                 }
-
             </div>
         );
     }
