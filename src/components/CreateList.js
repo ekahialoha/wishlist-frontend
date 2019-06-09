@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Form, Button } from 'react-bootstrap/';
+import { Form, Button } from 'react-bootstrap';
+import { Redirect } from 'react-router-dom';
 
 class CreateList extends Component {
     constructor(props) {
@@ -41,7 +42,6 @@ class CreateList extends Component {
         })
         .then(createdTask => createdTask.json())
         .catch(err => console.log('create list error: ', err));
-        // REDIRECT TO VIEW THE WISHLIST
     }
 
     render() {
@@ -55,7 +55,7 @@ class CreateList extends Component {
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Description</Form.Label>
-                        <Form.Control as="textarea" rows="2" placeholder="description" onChange={this.handleChanges} value={this.state.name} id="name"/>
+                        <Form.Control as="textarea" rows="2" placeholder="description" onChange={this.handleChanges} value={this.state.description} id="description"/>
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Image</Form.Label>

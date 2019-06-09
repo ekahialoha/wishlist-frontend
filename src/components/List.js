@@ -12,7 +12,7 @@ class List extends Component {
     }
 
     componentDidMount = () => {
-        this.fetchList(3) // ID FOR TESTING
+        this.fetchList(2) // ID FOR TESTING
     }
 
     fetchList = (id) => {
