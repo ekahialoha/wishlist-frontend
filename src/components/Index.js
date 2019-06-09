@@ -56,7 +56,8 @@ class Index extends Component {
         return (
             <div>
                 <div>
-                    <h1>{this.state.randomList.name}</h1>
+                    <h2>Featured Wishlist</h2>
+                    <h3>{this.state.randomList.name}</h3>
                 </div>
                 <div className="itemList">
                     {this.state.randomList.items.slice(0, 6).map((item, index) => {
