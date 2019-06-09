@@ -17,7 +17,7 @@ class App extends Component {
                     <h1><Link to="/">WishList</Link></h1>
                     <Navigation />
                     <Switch>
-                        <Route exact path='/' component={List} /> // Random Index
+                        <Route exact path='/' component={List}/> // Random Index
                         <Route path='/new' component={CreateList} /> // Create List
                         <Redirect from='/test' to='/about' />
                         <Route path='/view/:id' component={List} /> // View List
