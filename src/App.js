@@ -6,6 +6,7 @@ import Media from 'react-media';
 import Nav from './components/Nav';
 import Search from './components/Search';
 import Index from './components/Index';
+import CreateList from './components/CreateList';
 
 class App extends Component {
     render() {
@@ -15,10 +16,10 @@ class App extends Component {
                     <h1><Link to="/">WishList</Link></h1>
                     <Nav />
                     <Switch>
-                        <Route exact path='/' component={() => <Index />} /> // Random Index
+                        <Route exact path='/' component={Index} /> // Random Index
+                        <Route path='/new' component={CreateList} /> // Create List
                         <Redirect from='/test' to='/about' />
                         <Route path='/view/:id' component={() => <h2>View List</h2>} /> // View List
-                        <Route path='/new' component={() => <h2>New List</h2>} /> // Create List
                         <Route path='/search' component={SearchResults}/> // Search Results
                     </Switch>
                 </Router>
