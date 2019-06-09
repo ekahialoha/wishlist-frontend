@@ -56,7 +56,7 @@ class Item extends Component {
                         </form>
                         <Button onClick={this.handleClick}>Cxl</Button>
                     </React.Fragment> :
-                    <Button onClick={this.handleClick}>Gift?</Button>
+                    <Button onClick={this.handleClick}><i className="fas fa-gift"></i></Button>
                 }
             </div>
         );
