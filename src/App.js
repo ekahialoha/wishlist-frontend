@@ -13,13 +13,13 @@ class App extends Component {
         return (
             <div>
                 <Router>
-                    <h1><Link to="/">WishList</Link></h1>
+                    <h1><Link onClick={() => this.forceUpdate()} to="/">WishList</Link></h1>
                     <Navigation />
                     <Switch>
-                        <Route exact path='/' component={List}/> // Random Index
+                        <Route exact path='/' component={(props) => <List rand={Math.random()} {...props} />}/>}/> // Random Index
                         <Route path='/new' component={CreateList} /> // Create List
                         <Redirect from='/test' to='/about' />
-                        <Route path='/view/:id' component={List} /> // View List
+                        <Route path='/view/:id' component={(props) => <List rand={Math.random()} {...props} />}/>} /> // View List
                         <Route path='/search/:query' component={SearchResults}/> // Search Results
                     </Switch>
                 </Router>
