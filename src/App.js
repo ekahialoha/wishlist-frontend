@@ -5,7 +5,6 @@ import Media from 'react-media';
 // Components
 import Navigation from './components/Navigation';
 import Search from './components/Search';
-import Index from './components/Index';
 import List from './components/List';
 import CreateList from './components/CreateList';
 
@@ -17,7 +16,7 @@ class App extends Component {
                     <h1><Link to="/">WishList</Link></h1>
                     <Navigation />
                     <Switch>
-                        <Route exact path='/' component={Index} /> // Random Index
+                        <Route exact path='/' component={List} /> // Random Index
                         <Route path='/new' component={CreateList} /> // Create List
                         <Redirect from='/test' to='/about' />
                         <Route path='/view/:id' component={List} /> // View List
