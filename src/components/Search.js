@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Redirect, Switch, Route, Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 class Search extends Component {
     constructor(props){
@@ -31,7 +31,6 @@ class Search extends Component {
                 searchInput: ''
             });
         }
-
     }
 
     render() {
@@ -41,13 +40,13 @@ class Search extends Component {
         }
         return (
             <form onSubmit={this.handleSubmit}>
-            <input
-                type="text"
-                name="q"
-                value={this.state.searchInput}
-                onChange={this.handleChanges}
-            />
-            <input type="submit" value="search" />
+                <input
+                    type="text"
+                    name="q"
+                    value={this.state.searchInput}
+                    onChange={this.handleChanges}
+                />
+                <input type="submit" value="search" />
             </form>
         );
     }
