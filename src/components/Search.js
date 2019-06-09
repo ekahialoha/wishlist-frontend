@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Redirect, Switch, Route, Link } from "react-router-dom";
 
-import { createBrowserHistory } from 'history';
-
-const history = createBrowserHistory({ forceRefresh: true });
-
 class Search extends Component {
     constructor(props){
         super(props);
         this.state = {
-            'searchInput': ''
+            searchInput: '',
+            redirect: false
         };
     }
 
@@ -21,18 +18,27 @@ class Search extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        // console.log(this.state.searchInput);
-        // return (<Redirect to={{
-        //     path: '/search',
-        //     search: `?q={this.state.searchInput}`
-        // }} /> );
-        history.push(`/search?q=${this.state.searchInput}`);
-        // return( <Redirect to="/about" />)
-        // GRAB value of q
-        // CHANGE route to /search/<value of q>
+        this.setState({
+            redirect: true
+        });
+    }
+
+    componentDidUpdate = () => {
+        if (this.state.redirect)
+        {
+            this.setState({
+                redirect: false,
+                searchInput: ''
+            });
+        }
+
     }
 
     render() {
+        if (this.state.redirect) {
+            const url = `/search/${encodeURI(this.state.searchInput)}`;
+            return <Redirect to={url} />;
+        }
         return (
             <form onSubmit={this.handleSubmit}>
             <input

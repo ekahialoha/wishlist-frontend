@@ -5,6 +5,7 @@ import Media from 'react-media';
 // Components
 import Navigation from './components/Navigation';
 import Search from './components/Search';
+import SearchResults from './components/SearchResults';
 import List from './components/List';
 import CreateList from './components/CreateList';
 
@@ -20,19 +21,12 @@ class App extends Component {
                         <Route path='/new' component={CreateList} /> // Create List
                         <Redirect from='/test' to='/about' />
                         <Route path='/view/:id' component={List} /> // View List
-                        <Route path='/search' component={SearchResults}/> // Search Results
+                        <Route path='/search/:query' component={SearchResults}/> // Search Results
                     </Switch>
                 </Router>
             </div>
         );
     }
-}
-
-function SearchResults({ location }) {
-    console.log(location.search);
-    let params = new URLSearchParams(location.search);
-    console.log(params.get('q'));
-    return <h2>Search Results {params.get('q')}</h2>;
 }
 
 export default App;
