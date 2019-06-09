@@ -82,13 +82,17 @@ class List extends Component {
     }
 
     render() {
+        let style = {maxHeight: '50px', maxWidth: '50px', borderRadius: '50%'};
+
         if (this.state.redirect === true) {
             return <Redirect to='/' />
         }
+
         return (
             <div>
                 <div>
                     {this.state.random ? <h2>Featured Wishlist</h2> : '' }
+                    <img src={this.state.list.image} style={style}/>
                     <h3>{this.state.list.name}</h3>
                     <i className="fas fa-edit"></i>
                     <i className="far fa-trash-alt" onClick={this.handleDelete}></i>
