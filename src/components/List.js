@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Item from './Item';
 import { Redirect } from 'react-router-dom';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Accordion, Card } from 'react-bootstrap';
 
 class List extends Component {
     constructor(props) {
@@ -160,6 +160,26 @@ class List extends Component {
                         })}
                     </div> : ''
                 }
+                <Accordion>
+                    <Card>
+                        <Card.Header>
+                            <Accordion.Toggle as={Button} variant="link" block size="md" eventKey="0">Add New Item</Accordion.Toggle>
+                            <Accordion.Collapse eventKey="0">
+                                <Form>
+                                    <Form.Group>
+                                        <Form.Label>Name</Form.Label>
+                                        <Form.Control type="text" placeholder="name" />
+                                    </Form.Group>
+                                    <Form.Group>
+                                        <Form.Label>Image</Form.Label>
+                                        <Form.Control type="text" placeholder="image" />
+                                    </Form.Group>
+                                    <Button type="submit">Create New Item</Button>
+                                </Form>
+                            </Accordion.Collapse>
+                        </Card.Header>
+                    </Card>
+                </Accordion>
             </div>
         );
     }
