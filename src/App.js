@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Redirect, Switch, Route, Link } from "react-ro
 import Media from 'react-media';
 
 // Components
-import Nav from './components/Nav';
+import Navigation from './components/Navigation';
 import Search from './components/Search';
 import Index from './components/Index';
 import CreateList from './components/CreateList';
@@ -14,7 +14,7 @@ class App extends Component {
             <div>
                 <Router>
                     <h1><Link to="/">WishList</Link></h1>
-                    <Nav />
+                    <Navigation />
                     <Switch>
                         <Route exact path='/' component={Index} /> // Random Index
                         <Route path='/new' component={CreateList} /> // Create List
