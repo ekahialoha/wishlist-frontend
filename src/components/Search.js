@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from "react-router-dom";
+import { Form, FormControl, Button } from 'react-bootstrap';
 
 class Search extends Component {
     constructor(props){
@@ -40,15 +41,16 @@ class Search extends Component {
             return <Redirect to={url} />;
         }
         return (
-            <form onSubmit={this.handleSubmit}>
-                <input
+            <Form onSubmit={this.handleSubmit} inline>
+                <FormControl
                     type="text"
                     name="q"
                     value={this.state.searchInput}
                     onChange={this.handleChanges}
+                    required="required"
                 />
-                <input type="submit" value="search" />
-            </form>
+                <Button type="submit" className="ml-sm-2">Search</Button>
+            </Form>
         );
     }
 }

@@ -24,8 +24,8 @@ class Navigation extends Component {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav>
-                        <Search handleNavToggle={this.handleNavToggle} />
-                        <Link to="/new"><Button onClick={() => this.handleNavToggle(false)}>New WishList</Button></Link>
+                        <Navbar.Text><Search handleNavToggle={this.handleNavToggle} /></Navbar.Text>
+                        <Navbar.Text><Link to="/new"><Button onClick={() => this.handleNavToggle(false)}>New WishList</Button></Link></Navbar.Text>
                         <Navbar.Text>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet nisl non tellus elementum consequat. Nunc est libero, semper sit amet ante sit amet, dapibus pellentesque nibh. Aliquam vehicula sollicitudin felis, eu convallis magna pellentesque non. Integer consequat facilisis mauris et venenatis. Vestibulum nisl ex, vulputate id mi aliquet, fringilla tristique purus. Praesent quis magna mollis, hendrerit neque lacinia, cursus justo. Morbi non diam risus. Nullam odio orci, finibus a vulputate nec, blandit nec lectus.
                         </Navbar.Text>
