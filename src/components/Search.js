@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from "react-router-dom";
-import { Form, FormControl, Button } from 'react-bootstrap';
+import { Form, FormControl, Button, InputGroup } from 'react-bootstrap';
 
 class Search extends Component {
     constructor(props){
@@ -42,14 +42,23 @@ class Search extends Component {
         }
         return (
             <Form onSubmit={this.handleSubmit} inline>
-                <FormControl
-                    type="text"
-                    name="q"
-                    value={this.state.searchInput}
-                    onChange={this.handleChanges}
-                    required="required"
-                />
-                <Button type="submit" className="ml-sm-2">Search</Button>
+                <InputGroup className="mb-3">
+                    <FormControl
+                        type="text"
+                        name="q"
+                        value={this.state.searchInput}
+                        onChange={this.handleChanges}
+                        required="required"
+                    />
+                    <InputGroup.Append>
+                        <FormControl
+                            type="submit"
+                            className="ml-sm-2"
+                            value="Search"
+                            className="btn btn-primary"
+                        />
+                    </InputGroup.Append>
+                </InputGroup>
             </Form>
         );
     }
