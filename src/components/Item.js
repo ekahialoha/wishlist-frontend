@@ -56,7 +56,12 @@ class Item extends Component {
                         </form>
                         <Button onClick={this.handleClick}>Cxl</Button>
                     </React.Fragment> :
-                    <i className="fas fa-gift" onClick={this.handleClick}></i>
+                    <div>
+                        <i className="fas fa-gift" onClick={this.handleClick}></i>
+                        <i className="far fa-trash-alt" onClick={() => {
+                            this.props.handleDeleteItem(this.props.item.id, this.props.index)
+                        }}></i>
+                    </div>
                 }
             </div>
         );
