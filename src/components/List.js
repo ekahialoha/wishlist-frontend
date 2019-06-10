@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Item from './Item';
 import NewItem from './NewItem';
 import { Redirect, Link } from 'react-router-dom';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Container } from 'react-bootstrap';
 
 const API_URI = process.env.REACT_APP_BACKEND_URI;
 
@@ -103,10 +103,9 @@ class List extends Component {
             <div>
                 <Form onSubmit={this.handleEditListName}>
                     <Form.Group>
-                        <Form.Label>Edit Name</Form.Label>
                         <Form.Control type="text" placeholder={this.state.list.name} value={this.state.name} onChange={this.handleChanges}/>
                     </Form.Group>
-                    <Button type="submit">Edit</Button>
+                    <Button type="submit"><i className="far fa-check-square"></i></Button>
                 </Form>
                 <i className="far fa-window-close" onClick={this.toggleEditing}></i>
             </div>
@@ -183,7 +182,6 @@ class List extends Component {
     }
 
     render() {
-        let style = {maxHeight: '50px', maxWidth: '50px', borderRadius: '50%'};
 
         if (this.state.redirect === true) {
             return <Redirect to='/' />
@@ -191,21 +189,25 @@ class List extends Component {
 
         const path = `/view/${this.state.list.id}`;
         return (
-            <div>
+            <Container>
                 <div>
                     {this.state.random ? <h2>Featured Wishlist</h2> : '' }
-                    <img src={this.state.list.image} alt={this.state.list.name} style={style}/>
-                    {this.state.editing ?
-                        this.renderEditForm() :
-                        this.props.location.pathname === '/' ?
-                        <Link to={path}>
-                            <h3>{this.state.list.name}</h3>
-                        </Link> :
-                        <h3>{this.state.list.name}</h3>
-                    }
-                    {this.state.editing ? '' : <i className="fas fa-edit" onClick={this.toggleEditing}></i>}
-                    <i className="far fa-trash-alt" onClick={this.handleDelete}></i>
-                    {this.state.list.description}
+                    <div className="list-header">
+                        <img className="user-image" src={this.state.list.image} alt={this.state.list.name}/>
+                        {this.state.editing ?
+                            this.renderEditForm() :
+                            <div>
+                                <i className="far fa-trash-alt" onClick={this.handleDelete}></i>
+                                {this.state.editing ? '' : <i className="fas fa-edit" onClick={this.toggleEditing}></i>}
+                                {this.props.location.pathname === '/' ?
+                                <Link to={path}>
+                                    <h3 className="user-name">{this.state.list.name}</h3>
+                                </Link> :
+                                <h3 className="user-name">{this.state.list.name}</h3>}
+                            </div>
+                        }
+                    </div>
+                    <p>{this.state.list.description}</p>
                 </div>
                 {this.state.list.items ?
                     <div className="itemList">
@@ -228,7 +230,7 @@ class List extends Component {
                         handleCreateItem={this.handleCreateItem}
                     />
                 }
-            </div>
+            </Container>
         );
     }
 }
