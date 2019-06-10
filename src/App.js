@@ -13,7 +13,7 @@ class App extends Component {
         return (
             <div>
                 <Router>
-                    <h1><Link to="/">WishList</Link></h1>
+                    <h1 className="logo"><Link to="/">WishList</Link></h1>
                     <Navigation />
                     <Switch>
                         <Route exact path='/' component={(props) => <List rand={Math.random()} {...props} />}/>}/> // Random Index

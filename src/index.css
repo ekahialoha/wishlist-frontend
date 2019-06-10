@@ -1,3 +1,15 @@
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+/* APP */
+
+.logo {
+    font-family: 'Fredericka the Great', cursive;
+}
+
+/* SEARCH RESULTS */
+
 .searchResults {
     border: 1px solid #666666;
     border-radius: 10px;
