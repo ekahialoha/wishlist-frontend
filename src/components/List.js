@@ -31,7 +31,7 @@ class List extends Component {
     }
 
     fetchList = () => {
-        let url = 'http://localhost:3000/lists/';
+        let url = `${API_URI}/lists/`;
         let path = this.props.location.pathname;
         if (path === '/') {
             url += 'random';
@@ -82,7 +82,7 @@ class List extends Component {
     }
 
     handleDelete = () => {
-        fetch(`http://localhost:3000/lists/${this.state.list.id}`, {
+        fetch(`${API_URI}/lists/${this.state.list.id}`, {
             method: 'DELETE'
         }).then(data => {
             console.log('deleted');
@@ -116,7 +116,7 @@ class List extends Component {
     handleEditListName = () => {
         let list = Object.assign(this.state.list);
         list.name = this.state.newName;
-        fetch(`http://localhost:3000/lists/${this.state.list.id}`, {
+        fetch(`${API_URI}/lists/${this.state.list.id}`, {
             body: JSON.stringify(list),
             method: 'PUT',
             headers: {
@@ -149,7 +149,7 @@ class List extends Component {
     }
 
     handleCreateItem = (item) => {
-        fetch('http://localhost:3000/items/', {
+        fetch(`${API_URI}items/`, {
             body: JSON.stringify(item),
             method: 'POST',
             headers: {
@@ -175,7 +175,7 @@ class List extends Component {
     }
 
     handleDeleteItem = (itemID, index) => {
-        fetch(`http://localhost:3000/items/${itemID}`, {
+        fetch(`${API_URI}/items/${itemID}`, {
             method: 'DELETE'
         })
         .then(data => this.removeItemFromArray(index))
