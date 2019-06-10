@@ -190,7 +190,7 @@ class List extends Component {
         const path = `/view/${this.state.list.id}`;
         return (
             <Container>
-                <div>
+                <div className="main-header">
                     {this.state.random ? <h2>Featured Wishlist</h2> : '' }
                     <div className="list-header">
                         <img className="user-image" src={this.state.list.image} alt={this.state.list.name}/>
