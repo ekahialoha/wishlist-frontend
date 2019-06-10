@@ -6,6 +6,8 @@ body {
 
 .logo {
     font-family: 'Fredericka the Great', cursive;
+    text-align: center;
+    font-size: 3.5em;
 }
 
 /* SEARCH RESULTS */
