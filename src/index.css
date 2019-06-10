@@ -1,3 +1,12 @@
+:root {
+    --aubergine: #483F4D;
+    --chartreuse: #BBD460;
+    --off-white: #FEFCE3;
+    --cyan: #3CCDC9;
+    --yale-blue: #19445B;
+
+}
+
 body {
     font-family: 'Lato', sans-serif;
     background-color: lightgray;
