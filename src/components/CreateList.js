@@ -53,7 +53,7 @@ class CreateList extends Component {
         }
         return (
             <Container className="create-list-form">
-                <h2>Create New List</h2>
+                <h2>Create WishList</h2>
                 <Form onSubmit={this.handleSubmit}>
                     <Form.Group>
                         <Form.Label>Name</Form.Label>
