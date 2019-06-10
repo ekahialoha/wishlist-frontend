@@ -25,7 +25,7 @@ h2 {
     width: 90%;
     border-radius: 10px;
     background-color: white;
-    box-shadow: 3px 3px var(--chartreuse);
+    box-shadow: 3px 3px #c6d1a3;
 }
 
 /* APP */
@@ -88,6 +88,10 @@ h2 {
 .create-btn {
     background-color: var(--yale-blue);
     border: none;
+}
+
+.fa-plus {
+    color: white;
 }
 
 .create-btn:hover {
@@ -211,4 +215,12 @@ i:visited {
 
 .item-container i {
     padding-left: 5px;
+}
+
+/* NEW ITEM */
+
+.card-header, .fa-caret-down {
+    text-align: center;
+    background-color: var(--aubergine);
+    color: white;
 }
