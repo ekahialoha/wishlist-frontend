@@ -9,6 +9,7 @@ class NewItem extends Component {
             image: '',
             list_id: null
         };
+        this.addItemRef = React.createRef();
     }
 
     handleChanges = (e) => {
@@ -29,12 +30,22 @@ class NewItem extends Component {
         });
     }
 
+    handleScroll = () => {
+        // setTimeout required because this.addItemRef is hidden, need to at 305 milliseconds before we scroll
+        setTimeout(() => {
+            this.addItemRef.current.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center',
+            });
+        }, 305);
+    }
+
     render() {
         return (
             <Accordion>
                 <Card>
                     <Card.Header>
-                        <Accordion.Toggle as={Button} variant="link" block size="lg" eventKey="0">Add New Item <i className="fas fa-caret-down"></i></Accordion.Toggle>
+                        <Accordion.Toggle onClick={this.handleScroll} as={Button} variant="link" block size="lg" eventKey="0">Add New Item <i className="fas fa-caret-down"></i></Accordion.Toggle>
                         <Accordion.Collapse eventKey="0">
                             <Form onSubmit={this.handleSubmit}>
                                 <Form.Group>
@@ -45,7 +56,7 @@ class NewItem extends Component {
                                     <Form.Label>Image</Form.Label>
                                     <Form.Control required type="text" placeholder="image" id="image" onChange={this.handleChanges} value={this.state.image}/>
                                 </Form.Group>
-                                <Button type="submit" block size="lg"><i className="fas fa-plus"></i></Button>
+                                <Button ref={this.addItemRef} type="submit" block size="lg"><i className="fas fa-plus"></i></Button>
                             </Form>
                         </Accordion.Collapse>
                     </Card.Header>
