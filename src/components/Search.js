@@ -21,6 +21,7 @@ class Search extends Component {
         this.setState({
             redirect: true
         });
+        this.props.handleNavToggle(false);
     }
 
     componentDidUpdate = () => {
