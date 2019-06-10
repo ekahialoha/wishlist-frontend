@@ -190,7 +190,6 @@ class List extends Component {
         }
 
         const path = `/view/${this.state.list.id}`;
-
         return (
             <div>
                 <div>
@@ -198,10 +197,12 @@ class List extends Component {
                     <img src={this.state.list.image} alt={this.state.list.name} style={style}/>
                     {this.state.editing ?
                         this.renderEditForm() :
+                        this.props.location.pathname === '/' ?
                         <Link to={path}>
                             <h3>{this.state.list.name}</h3>
-                        </Link>
-                    }
+                        </Link> :
+                        <h3>{this.state.list.name}</h3>
+                    }}\
                     {this.state.editing ? '' : <i className="fas fa-edit" onClick={this.toggleEditing}></i>}
                     <i className="far fa-trash-alt" onClick={this.handleDelete}></i>
                     {this.state.list.description}
