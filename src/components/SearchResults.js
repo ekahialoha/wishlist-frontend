@@ -36,10 +36,10 @@ class SearchResults extends Component {
     render() {
         return (
             <Container className="searchResults">
-                <h5>
+                <div>
                     Showing {this.state.searchResults.length} results for:
                     <Badge variant="secondary">{this.props.match.params.query}</Badge>
-                </h5>
+                </div>
                 {this.state.searchResults.map((result, index) => {
                     const link = `/view/${result.id}`
                     return (
