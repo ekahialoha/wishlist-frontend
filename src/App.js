@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Redirect, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Media from 'react-media';
 
 // Components
@@ -16,10 +16,10 @@ class App extends Component {
                     <h1 className="logo"><Link to="/">WishList</Link></h1>
                     <Navigation />
                     <Switch>
-                        <Route exact path='/' component={(props) => <List rand={Math.random()} {...props} />}/>}/> // Random Index
-                        <Route path='/new' component={CreateList} /> // Create List
-                        <Route path='/view/:id' component={(props) => <List rand={Math.random()} {...props} />}/>} /> // View List
-                        <Route path='/search/:query' component={(props) => <SearchResults rand={Math.random()} {...props} />}/>} /> // Search Results
+                        <Route exact path='/' component={(props) => <List rand={Math.random()} {...props} />}/>}/>
+                        <Route path='/new' component={CreateList} />
+                        <Route path='/view/:id' component={(props) => <List rand={Math.random()} {...props} />}/>} />
+                        <Route path='/search/:query' component={(props) => <SearchResults rand={Math.random()} {...props} />}/>} />
                     </Switch>
                 </Router>
             </div>

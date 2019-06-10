@@ -57,15 +57,37 @@ class CreateList extends Component {
                 <Form onSubmit={this.handleSubmit}>
                     <Form.Group>
                         <Form.Label>Name</Form.Label>
-                        <Form.Control required type="text" placeholder="enter name" onChange={this.handleChanges} value={this.state.name} id="name"/>
+                        <Form.Control
+                            required
+                            type="text"
+                            placeholder="enter name"
+                            onChange={this.handleChanges}
+                            value={this.state.name}
+                            id="name"
+                        />
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Description</Form.Label>
-                        <Form.Control required as="textarea" rows="2" placeholder="description" onChange={this.handleChanges} value={this.state.description} id="description"/>
+                        <Form.Control
+                            required
+                            as="textarea"
+                            rows="2"
+                            placeholder="description"
+                            onChange={this.handleChanges}
+                            value={this.state.description}
+                            id="description"
+                        />
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Image</Form.Label>
-                        <Form.Control required type="text" placeholder="image" onChange={this.handleChanges} value={this.state.image} id="image"/>
+                        <Form.Control
+                            required
+                            type="text"
+                            placeholder="image"
+                            onChange={this.handleChanges}
+                            value={this.state.image}
+                            id="image"
+                        />
                     </Form.Group>
                     <Button type="submit" size="lg" block>Create WishList</Button>
                 </Form>

@@ -56,7 +56,7 @@ class NewItem extends Component {
                                     <Form.Label>Image</Form.Label>
                                     <Form.Control required type="text" placeholder="image" id="image" onChange={this.handleChanges} value={this.state.image}/>
                                 </Form.Group>
-                                <Button ref={this.addItemRef} type="submit" block size="lg"><i className="fas fa-plus"></i></Button>
+                                <Button ref={this.addItemRef} type="submit" block size="lg" className="btn btn-primary"><i className="fas fa-plus"></i></Button>
                             </Form>
                         </Accordion.Collapse>
                     </Card.Header>

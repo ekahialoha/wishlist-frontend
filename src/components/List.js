@@ -45,15 +45,15 @@ class List extends Component {
         fetch(url)
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if (path === '/') {
                     data.items = data.items.slice(0, 6);
                 }
                 this.setState({
                     list: data
-                }, () => {
+                }/*, () => {
                     console.log(this.state);
-                });
+                }*/);
             })
             .catch(err => console.log('View list error: ', err));
     }
@@ -85,7 +85,7 @@ class List extends Component {
         fetch(`${API_URI}/lists/${this.state.list.id}`, {
             method: 'DELETE'
         }).then(data => {
-            console.log('deleted');
+            // console.log('deleted');
         }).catch(err => console.log('delete item error: ', err));
         this.setState({
             redirect: true
@@ -144,7 +144,7 @@ class List extends Component {
             prevState['list'].items.push(item);
             return {
                 list: prevState['list']
-            }
+            };
         });
     }
 
@@ -160,7 +160,7 @@ class List extends Component {
         .then(createdItem => createdItem.json())
         .then(jsonData => {
             this.updateListItems(jsonData);
-            console.log(jsonData);
+            // console.log(jsonData);
         })
         .catch(err => console.log('create item error: ', err));
     }
@@ -170,7 +170,7 @@ class List extends Component {
             prevState['list'].items.splice(index, 1);
             return {
                 list: prevState['list']
-            }
+            };
         });
     }
 

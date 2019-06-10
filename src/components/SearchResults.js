@@ -46,7 +46,6 @@ class SearchResults extends Component {
                         <Media key={index}>
                             {index + 1}.<img src={result.image} alt={result.name} />
                             <Link to={link}>
-
                                 <Media.Body>
                                     <h4>{result.name}</h4>
                                     <p>{result.description}</p>
