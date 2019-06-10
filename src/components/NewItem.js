@@ -7,7 +7,8 @@ class NewItem extends Component {
         this.state = {
             name: '',
             image: '',
-            list_id: null
+            list_id: null,
+            showForm: false
         };
         this.addItemRef = React.createRef();
     }
@@ -40,28 +41,60 @@ class NewItem extends Component {
         }, 305);
     }
 
+    handleShowForm = () => {
+        this.setState({
+            showForm: !this.state.showForm
+        }, () => {
+            if (this.state.showForm) {
+                this.handleScroll();
+            }
+        });
+    };
+
     render() {
         return (
-            <Accordion>
                 <Card>
-                    <Card.Header>
-                        <Accordion.Toggle onClick={this.handleScroll} as={Button} variant="link" block size="lg" eventKey="0">Add New Item <i className="fas fa-caret-down"></i></Accordion.Toggle>
-                        <Accordion.Collapse eventKey="0">
+                    <Card.Header onClick={this.handleShowForm}>
+                        <span>Add New Item <i className="fas fa-caret-down"></i></span>
+                    </Card.Header>
+                    {this.state.showForm ?
+                        <Card.Body>
                             <Form onSubmit={this.handleSubmit}>
                                 <Form.Group>
                                     <Form.Label>Name</Form.Label>
-                                    <Form.Control required type="text" placeholder="name" id="name" onChange={this.handleChanges} value={this.state.name}/>
+                                    <Form.Control
+                                        required
+                                        type="text"
+                                        placeholder="name"
+                                        id="name"
+                                        onChange={this.handleChanges}
+                                        value={this.state.name}
+                                    />
                                 </Form.Group>
                                 <Form.Group>
                                     <Form.Label>Image</Form.Label>
-                                    <Form.Control required type="text" placeholder="image" id="image" onChange={this.handleChanges} value={this.state.image}/>
+                                    <Form.Control
+                                        required
+                                        type="text"
+                                        placeholder="image"
+                                        id="image"
+                                        onChange={this.handleChanges}
+                                        value={this.state.image}
+                                    />
                                 </Form.Group>
-                                <Button ref={this.addItemRef} type="submit" block size="lg" className="btn btn-primary"><i className="fas fa-plus"></i></Button>
+                                <Button
+                                    ref={this.addItemRef}
+                                    type="submit"
+                                    block
+                                    size="lg"
+                                    className="btn create-button"
+                                >
+                                    <i className="fas fa-plus"></i>
+                                </Button>
                             </Form>
-                        </Accordion.Collapse>
-                    </Card.Header>
+                        </Card.Body> :
+                        null }
                 </Card>
-            </Accordion>
         );
     }
 }
