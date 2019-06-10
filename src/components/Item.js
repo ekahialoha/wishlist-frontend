@@ -42,7 +42,10 @@ class Item extends Component {
         return (
             <div>
                 <img src={this.props.item.image} alt={this.props.item.name} style={style} />
-                {this.props.item.name}
+                {this.props.item.purchased ?
+                    <del>{this.props.item.name}</del> :
+                    this.props.item.name
+                }
                 {this.state.showForm ?
                     <React.Fragment>
                         <form onSubmit={this.handleSubmit}>
@@ -57,7 +60,10 @@ class Item extends Component {
                         <Button onClick={this.handleClick}>Cxl</Button>
                     </React.Fragment> :
                     <div>
-                        <i className="fas fa-gift" onClick={this.handleClick}></i>
+                        {!this.props.item.purchased ?
+                            <i className="fas fa-gift" onClick={this.handleClick}></i> :
+                            null
+                        }
                         <i className="far fa-trash-alt" onClick={() => {
                             this.props.handleDeleteItem(this.props.item.id, this.props.index)
                         }}></i>
