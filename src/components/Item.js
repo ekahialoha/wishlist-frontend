@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
+import { Media } from 'react-bootstrap';
 
 class Item extends Component {
     constructor(props) {
@@ -38,20 +39,23 @@ class Item extends Component {
     }
 
     render() {
-        let style = {maxHeight: '100px', maxWidth: '100px'};
         return (
-            <div>
+            <Media className="item-container">
                 {
                     this.props.item.purchased ?
-                        <div>
-                            <img className="grayscale" src={this.props.item.image} alt={this.props.item.name} style={style} />
-                            <del>{this.props.item.name}</del>
-                        </div>
+                        <React.Fragment>
+                            <img className="grayscale" src={this.props.item.image} alt={this.props.item.name} />
+                            <Media.Body>
+                                <del>{this.props.item.name}</del>
+                            </Media.Body>
+                        </React.Fragment>
                          :
-                        <div>
-                            <p>{this.props.item.name}</p>
-                            <img src={this.props.item.image} alt={this.props.item.name} style={style} />
-                        </div>
+                        <React.Fragment>
+                            <img src={this.props.item.image} alt={this.props.item.name} />
+                            <Media.Body>
+                                {this.state.showForm ? '' : <p>{this.props.item.name}</p>}
+                            </Media.Body>
+                        </React.Fragment>
                     }
                 {this.state.showForm ?
                     <React.Fragment>
@@ -76,7 +80,7 @@ class Item extends Component {
                         }}></i>
                     </div>
                 }
-            </div>
+            </Media>
         );
     }
 }

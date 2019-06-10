@@ -147,3 +147,16 @@ i:visited {
     filter: grayscale(100%);
     opacity: 0.5;
 }
+
+.item-container {
+    margin: 20px 0;
+    border-bottom: 1px solid var(--aubergine);
+}
+
+.item-container img {
+    max-width: 75px;
+}
+
+.item-container i {
+    padding-left: 5px;
+}
