@@ -33,7 +33,14 @@ class Navigation extends Component {
                         <Navbar.Text><Search handleNavToggle={this.handleNavToggle} /></Navbar.Text>
                         <Navbar.Text>
                             <Link to="/new">
-                                <Button onClick={() => this.handleNavToggle(false)}>New WishList</Button>
+                                <Button
+                                    block
+                                    size="lg"
+                                    className="new-list-btn"
+                                    onClick={() => this.handleNavToggle(false)}
+                                >
+                                    Create WishList
+                                </Button>
                             </Link>
                         </Navbar.Text>
                         <Navbar.Text>
