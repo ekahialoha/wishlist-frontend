@@ -24,8 +24,10 @@ class SearchResults extends Component {
         this.fetchSearchResults();
     }
 
-    componentDidUpdate = () => {
-        this.fetchSearchResults();
+    componentDidUpdate = (prevProps) => {
+        if (prevProps.rand !== this.props.rand) {
+            this.fetchSearchResults();
+        }
     }
 
     render() {

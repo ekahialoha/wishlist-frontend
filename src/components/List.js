@@ -22,6 +22,12 @@ class List extends Component {
         this.fetchList();
     }
 
+    componentDidUpdate = (prevProps) => {
+        if (prevProps.rand !== this.props.rand) {
+            this.fetchList();
+        }
+    }
+
     fetchList = () => {
         let url = 'http://localhost:3000/lists/';
         let path = this.props.location.pathname;
