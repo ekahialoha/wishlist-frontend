@@ -88,3 +88,10 @@ h2 {
 .searchResults > div.media > a  > div.media-body {
     margin-left: 2em;
 }
+
+/* ITEM */
+
+.grayscale {
+    filter: grayscale(100%);
+    opacity: 0.5;
+}

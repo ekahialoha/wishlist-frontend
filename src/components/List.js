@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Item from './Item';
 import NewItem from './NewItem';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
 
 const API_URI = process.env.REACT_APP_BACKEND_URI;
@@ -189,12 +189,19 @@ class List extends Component {
             return <Redirect to='/' />
         }
 
+        const path = `/view/${this.state.list.id}`;
+
         return (
             <div>
                 <div>
                     {this.state.random ? <h2>Featured Wishlist</h2> : '' }
                     <img src={this.state.list.image} alt={this.state.list.name} style={style}/>
-                    {this.state.editing ? this.renderEditForm() : <h3>{this.state.list.name}</h3>}
+                    {this.state.editing ?
+                        this.renderEditForm() :
+                        <Link to={path}>
+                            <h3>{this.state.list.name}</h3>
+                        </Link>
+                    }
                     {this.state.editing ? '' : <i className="fas fa-edit" onClick={this.toggleEditing}></i>}
                     <i className="far fa-trash-alt" onClick={this.handleDelete}></i>
                     {this.state.list.description}

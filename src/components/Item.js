@@ -41,11 +41,18 @@ class Item extends Component {
         let style = {maxHeight: '100px', maxWidth: '100px'};
         return (
             <div>
-                <img src={this.props.item.image} alt={this.props.item.name} style={style} />
-                {this.props.item.purchased ?
-                    <del>{this.props.item.name}</del> :
-                    this.props.item.name
-                }
+                {
+                    this.props.item.purchased ?
+                        <div>
+                            <img className="grayscale" src={this.props.item.image} alt={this.props.item.name} style={style} />
+                            <del>{this.props.item.name}</del>
+                        </div>
+                         :
+                        <div>
+                            <p>{this.props.item.name}</p>
+                            <img src={this.props.item.image} alt={this.props.item.name} style={style} />
+                        </div>
+                    }
                 {this.state.showForm ?
                     <React.Fragment>
                         <form onSubmit={this.handleSubmit}>
