@@ -89,7 +89,7 @@ class CreateList extends Component {
                             id="image"
                         />
                     </Form.Group>
-                    <Button type="submit" size="lg" block>Create WishList</Button>
+                    <Button className="create-btn" type="submit" size="lg" block>Create WishList</Button>
                 </Form>
             </Container>
         );

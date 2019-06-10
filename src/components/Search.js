@@ -53,7 +53,7 @@ class Search extends Component {
                     <InputGroup.Append>
                         <FormControl
                             type="submit"
-                            className="ml-sm-2 btn btn-primary"
+                            className="ml-sm-2 btn search-button"
                             value="Search"
                         />
                     </InputGroup.Append>

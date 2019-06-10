@@ -20,8 +20,6 @@ class Navigation extends Component {
     render() {
         return (
             <Navbar
-                bg="dark"
-                variant="dark"
                 expand="false"
                 expanded={this.state.expanded}
                 onToggle={this.handleNavToggle}

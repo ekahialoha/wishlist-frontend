@@ -8,13 +8,14 @@
 
 body {
     font-family: 'Lato', sans-serif;
-    background-color: lightgray;
+    background-color: #e8e8e8;
 }
 
 h2 {
     font-family: 'Fredericka the Great';
     text-align: center;
-    border-bottom: 1px solid black;
+    color: var(--aubergine);
+    border-bottom: 1px solid var(--aubergine);
     margin-bottom: 20px;
 }
 
@@ -37,11 +38,10 @@ h2 {
 }
 
 .logo > a {
-    color: black;
+    color: var(--yale-blue);
 }
 
 .logo > a:hover {
-    color: black;
     text-decoration: none;
 }
 
@@ -54,6 +54,27 @@ h2 {
     letter-spacing: .05em;
 }
 
+.navbar {
+    background-color: var(--aubergine);
+}
+
+.navbar-brand, .navbar-text {
+    color: var(--off-white) !important;
+}
+
+.navbar button, .search-button {
+    background-color: var(--cyan);
+    border: none;
+}
+
+.navbar button:hover, .search-button:hover {
+    background-color: #30A4A0;
+}
+
+.navbar-text > a:hover {
+    text-decoration: none;
+}
+
 /* CREATE NEW */
 
 .create-list-form {
@@ -62,20 +83,30 @@ h2 {
     background-color: white;
 }
 
+.create-btn {
+    background-color: var(--yale-blue);
+    border: none;
+}
+
+.create-btn:hover {
+    background-color: #46697B;
+}
+
 /* SEARCH RESULTS */
 
 .searchResults {
-    border: 1px solid #666666;
     border-radius: 10px;
     margin-top: 1em;
-    padding: 1em 0;
+    padding: 1em 20px;
 }
+
 .searchResults > div.media > img, .user-image {
     border-radius: 5px;
     max-height: 50px;
     max-width: 50px;
     margin-left: .5em;
 }
+
 .searchResults > div.media > a {
 }
 
@@ -83,12 +114,13 @@ h2 {
     padding-top: 1em;
 
 }
+
 .searchResults > div.media:nth-last-child(n+2)  {
-    border-bottom: 1px solid #666666;
+    border-bottom: 1px solid var(--aubergine);
 }
 
 .searchResults > div.media:first-of-type {
-    border-top: 1px solid #666666;
+    border-top: 1px solid var(--aubergine);
     margin-top: .6em;
 }
 
@@ -98,6 +130,15 @@ h2 {
 
 .searchResults > div.media > a  > div.media-body {
     margin-left: 2em;
+}
+
+.searchResults > div {
+    padding-bottom: 10px;
+}
+
+.badge {
+    margin-left: 10px;
+    font-size: 1.1em;
 }
 
 /* LIST */
@@ -127,6 +168,14 @@ i:visited {
 
 .list-header > div {
     width: 100%;
+}
+
+.list-header a {
+    color: black;
+}
+
+.list-header a:hover {
+    text-decoration: underline;
 }
 
 .user-name {
