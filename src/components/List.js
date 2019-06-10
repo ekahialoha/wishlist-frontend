@@ -131,6 +131,32 @@ class List extends Component {
         });
     }
 
+    updateListItems = (item) => {
+        this.setState(prevState => {
+            prevState['list'].items.push(item);
+            return {
+                list: prevState['list']
+            }
+        });
+    }
+
+    handleCreateItem = (item) => {
+        fetch('http://localhost:3000/items/', {
+            body: JSON.stringify(item),
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(createdItem => createdItem.json())
+        .then(jsonData => {
+            this.updateListItems(jsonData);
+            console.log(jsonData);
+        })
+        .catch(err => console.log('create item error: ', err));
+    }
+
     render() {
         let style = {maxHeight: '50px', maxWidth: '50px', borderRadius: '50%'};
 
@@ -161,7 +187,10 @@ class List extends Component {
                         })}
                     </div> : ''
                 }
-                <NewItem listID={this.state.list.id}/>
+                <NewItem
+                    listID={this.state.list.id}
+                    handleCreateItem={this.handleCreateItem}
+                />
             </div>
         );
     }
