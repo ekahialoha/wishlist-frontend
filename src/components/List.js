@@ -131,6 +131,49 @@ class List extends Component {
         });
     }
 
+    updateListItems = (item) => {
+        this.setState(prevState => {
+            prevState['list'].items.push(item);
+            return {
+                list: prevState['list']
+            }
+        });
+    }
+
+    handleCreateItem = (item) => {
+        fetch('http://localhost:3000/items/', {
+            body: JSON.stringify(item),
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(createdItem => createdItem.json())
+        .then(jsonData => {
+            this.updateListItems(jsonData);
+            console.log(jsonData);
+        })
+        .catch(err => console.log('create item error: ', err));
+    }
+
+    removeItemFromArray = (index) => {
+        this.setState(prevState => {
+            prevState['list'].items.splice(index, 1);
+            return {
+                list: prevState['list']
+            }
+        });
+    }
+
+    handleDeleteItem = (itemID, index) => {
+        fetch(`http://localhost:3000/items/${itemID}`, {
+            method: 'DELETE'
+        })
+        .then(data => this.removeItemFromArray(index))
+        .catch(err => console.log('delete item err: ', err));
+    }
+
     render() {
         let style = {maxHeight: '50px', maxWidth: '50px', borderRadius: '50%'};
 
@@ -156,12 +199,16 @@ class List extends Component {
                                     index={index}
                                     item={item}
                                     handlePurchaser={this.handlePurchaser}
+                                    handleDeleteItem={this.handleDeleteItem}
                                 />
                             );
                         })}
                     </div> : ''
                 }
-                <NewItem listID={this.state.list.id}/>
+                <NewItem
+                    listID={this.state.list.id}
+                    handleCreateItem={this.handleCreateItem}
+                />
             </div>
         );
     }
