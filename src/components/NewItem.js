@@ -87,7 +87,7 @@ class NewItem extends Component {
                                     type="submit"
                                     block
                                     size="lg"
-                                    className="btn create-button"
+                                    className="btn create-btn"
                                 >
                                     <i className="fas fa-plus"></i>
                                 </Button>
