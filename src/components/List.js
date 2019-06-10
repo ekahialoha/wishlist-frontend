@@ -221,10 +221,12 @@ class List extends Component {
                         })}
                     </div> : ''
                 }
-                <NewItem
-                    listID={this.state.list.id}
-                    handleCreateItem={this.handleCreateItem}
-                />
+                {this.state.random ? '' :
+                    <NewItem
+                        listID={this.state.list.id}
+                        handleCreateItem={this.handleCreateItem}
+                    />
+                }
             </div>
         );
     }
