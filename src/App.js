@@ -20,7 +20,7 @@ class App extends Component {
                         <Route path='/new' component={CreateList} /> // Create List
                         <Redirect from='/test' to='/about' />
                         <Route path='/view/:id' component={(props) => <List rand={Math.random()} {...props} />}/>} /> // View List
-                        <Route path='/search/:query' component={SearchResults}/> // Search Results
+                        <Route path='/search/:query' component={SearchResults} /> // Search Results
                     </Switch>
                 </Router>
             </div>

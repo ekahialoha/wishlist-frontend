@@ -9,7 +9,7 @@ class SearchResults extends Component {
         };
     }
 
-    componentDidMount = () => {
+    fetchSearchResults = () => {
         fetch(`http://localhost:3000/lists/search/${encodeURI(this.props.match.params.query)}`)
         .then(res => res.json())
         .then(data => {
@@ -18,6 +18,14 @@ class SearchResults extends Component {
             })
         })
         .catch(err => console.log('search results: ', err));
+    }
+
+    componentDidMount = () => {
+        this.fetchSearchResults();
+    }
+
+    componentDidUpdate = () => {
+        this.fetchSearchResults();
     }
 
     render() {
