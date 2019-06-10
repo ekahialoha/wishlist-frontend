@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import List from './List';
-import { Redirect } from 'react-router-dom';
 import { Form, Button, Accordion, Card } from 'react-bootstrap';
 
 class NewItem extends Component {
