@@ -202,7 +202,7 @@ class List extends Component {
                             <h3>{this.state.list.name}</h3>
                         </Link> :
                         <h3>{this.state.list.name}</h3>
-                    }}\
+                    }
                     {this.state.editing ? '' : <i className="fas fa-edit" onClick={this.toggleEditing}></i>}
                     <i className="far fa-trash-alt" onClick={this.handleDelete}></i>
                     {this.state.list.description}
