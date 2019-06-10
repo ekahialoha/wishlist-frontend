@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Container } from 'react-bootstrap';
 import { Redirect } from 'react-router-dom';
 
 const API_URI = process.env.REACT_APP_BACKEND_URI;
@@ -52,7 +52,7 @@ class CreateList extends Component {
             return <Redirect to={redirectTo} />
         }
         return (
-            <div>
+            <Container className="create-list-form">
                 <h2>Create New List</h2>
                 <Form onSubmit={this.handleSubmit}>
                     <Form.Group>
@@ -69,7 +69,7 @@ class CreateList extends Component {
                     </Form.Group>
                     <Button type="submit" size="lg" block>Create WishList</Button>
                 </Form>
-            </div>
+            </Container>
         );
     }
 }

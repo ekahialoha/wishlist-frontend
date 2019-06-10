@@ -42,7 +42,7 @@ class Search extends Component {
         }
         return (
             <Form onSubmit={this.handleSubmit} inline>
-                <InputGroup className="mb-3">
+                <InputGroup className="my-3">
                     <FormControl
                         type="text"
                         name="q"
