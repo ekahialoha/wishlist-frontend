@@ -4,6 +4,8 @@ import NewItem from './NewItem';
 import { Redirect } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
 
+const API_URI = process.env.REACT_APP_BACKEND_URI;
+
 class List extends Component {
     constructor(props) {
         super(props);
@@ -57,7 +59,7 @@ class List extends Component {
     }
 
     handlePurchaser = (item, index) => {
-        fetch(`http://localhost:3000/items/${item.id}`, {
+        fetch(`${API_URI}/items/${item.id}`, {
             body: JSON.stringify(item),
             method: 'PUT',
             headers: {

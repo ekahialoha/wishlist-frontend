@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Badge, Media } from 'react-bootstrap';
 
+const API_URI = process.env.REACT_APP_BACKEND_URI;
 
 class SearchResults extends Component {
     constructor(props) {
@@ -12,7 +13,7 @@ class SearchResults extends Component {
     }
 
     fetchSearchResults = () => {
-        fetch(`http://localhost:3000/lists/search/${encodeURI(this.props.match.params.query)}`)
+        fetch(`${API_URI}/lists/search/${encodeURI(this.props.match.params.query)}`)
         .then(res => res.json())
         .then(data => {
             this.setState({

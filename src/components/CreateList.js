@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { Redirect } from 'react-router-dom';
 
+const API_URI = process.env.REACT_APP_BACKEND_URI;
+
 class CreateList extends Component {
     constructor(props) {
         super(props);
@@ -26,7 +28,7 @@ class CreateList extends Component {
     }
 
     handleCreateList = (list) => {
-        fetch('http://localhost:3000/lists', {
+        fetch(`${API_URI}/lists`, {
             body: JSON.stringify(list),
             method: 'POST',
             headers: {
