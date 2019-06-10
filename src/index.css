@@ -14,7 +14,8 @@ body {
 h2 {
     font-family: 'Fredericka the Great';
     text-align: center;
-    border-bottom: 1px solid black;
+    color: var(--aubergine);
+    border-bottom: 1px solid var(--aubergine);
     margin-bottom: 20px;
 }
 
@@ -37,11 +38,10 @@ h2 {
 }
 
 .logo > a {
-    color: black;
+    color: var(--yale-blue);
 }
 
 .logo > a:hover {
-    color: black;
     text-decoration: none;
 }
 
@@ -62,12 +62,12 @@ h2 {
     color: var(--off-white) !important;
 }
 
-.navbar button {
+.navbar button, .search-button {
     background-color: var(--cyan);
     border: none;
 }
 
-.navbar button:hover {
+.navbar button:hover, .search-button:hover {
     background-color: #30A4A0;
 }
 
@@ -81,6 +81,15 @@ h2 {
     width: 90%;
     border-radius: 10px;
     background-color: white;
+}
+
+.create-btn {
+    background-color: var(--yale-blue);
+    border: none;
+}
+
+.create-btn:hover {
+    background-color: #46697B;
 }
 
 /* SEARCH RESULTS */
@@ -159,6 +168,14 @@ i:visited {
 
 .list-header > div {
     width: 100%;
+}
+
+.list-header a {
+    color: black;
+}
+
+.list-header a:hover {
+    text-decoration: underline;
 }
 
 .user-name {
