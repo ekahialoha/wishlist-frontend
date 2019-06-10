@@ -1,0 +1,35 @@
+.searchResults {
+    border: 1px solid #666666;
+    border-radius: 10px;
+    margin-top: 1em;
+    padding: 1em 0;
+}
+.searchResults > div.media > img {
+    border-radius: 50%;
+    max-height: 100px;
+    max-width: 100px;
+    margin-left: .5em;
+}
+.searchResults > div.media > a {
+}
+
+.searchResults > div.media {
+    padding-top: 1em;
+
+}
+.searchResults > div.media:nth-last-child(n+2)  {
+    border-bottom: 1px solid #666666;
+}
+
+.searchResults > div.media:first-of-type {
+    border-top: 1px solid #666666;
+    margin-top: .6em;
+}
+
+.searchResults > div.media:hover  {
+    background: #666666;
+}
+
+.searchResults > div.media > a  > div.media-body {
+    margin-left: 2em;
+}

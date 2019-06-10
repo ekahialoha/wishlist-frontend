@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Container, Badge, Media } from 'react-bootstrap';
+
 
 class SearchResults extends Component {
     constructor(props) {
@@ -31,25 +33,28 @@ class SearchResults extends Component {
     }
 
     render() {
-        let style = {maxHeight: '50px', maxWidth: '50px', borderRadius: '50%'};
         return (
-            <div>
-                <h2>Search Results {this.props.match.params.query}</h2>
+            <Container className="searchResults">
+                <h5>
+                    Showing {this.state.searchResults.length} results for:
+                    <Badge variant="secondary">{this.props.match.params.query}</Badge>
+                </h5>
                 {this.state.searchResults.map((result, index) => {
                     const link = `/view/${result.id}`
                     return (
-                        <React.Fragment key={index}>
+                        <Media key={index}>
+                            {index + 1}.<img src={result.image} alt={result.name} />
                             <Link to={link}>
-                                <div>
-                                    <img src={result.image} alt={result.name} style={style}/>
+
+                                <Media.Body>
                                     <h4>{result.name}</h4>
-                                    <h5>{result.description}</h5>
-                                </div>
+                                    <p>{result.description}</p>
+                                </Media.Body>
                             </Link>
-                        </React.Fragment>
+                        </Media>
                     );
                 })}
-            </div>
+            </Container>
         );
     }
 }
