@@ -77,6 +77,13 @@ h2 {
     text-decoration: none;
 }
 
+.about {
+    border: 1px solid var(--off-white);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px auto;
+}
+
 /* CREATE NEW */
 
 .create-list-form {

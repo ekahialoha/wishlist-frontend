@@ -1,19 +1,26 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Search from './Search';
-import { Navbar, Nav, Button } from 'react-bootstrap';
+import { Navbar, Nav, Button, Collapse } from 'react-bootstrap';
 
 class Navigation extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            expanded: false
+            expanded: false,
+            aboutOpen: false
         };
     }
 
     handleNavToggle = (expand) => {
         this.setState({
             expanded: expand
+        });
+    }
+
+    toggleAbout = () => {
+        this.setState({
+            aboutOpen: !this.state.aboutOpen
         });
     }
 
@@ -42,8 +49,13 @@ class Navigation extends Component {
                             </Link>
                         </Navbar.Text>
                         <Navbar.Text>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet nisl non tellus elementum consequat. Nunc est libero, semper sit amet ante sit amet, dapibus pellentesque nibh. Aliquam vehicula sollicitudin felis, eu convallis magna pellentesque non. Integer consequat facilisis mauris et venenatis. Vestibulum nisl ex, vulputate id mi aliquet, fringilla tristique purus. Praesent quis magna mollis, hendrerit neque lacinia, cursus justo. Morbi non diam risus. Nullam odio orci, finibus a vulputate nec, blandit nec lectus.
+                            <Button block onClick={this.toggleAbout}>About</Button>
                         </Navbar.Text>
+                            <Collapse in={this.state.aboutOpen}>
+                                <Navbar.Text className="about">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet nisl non tellus elementum consequat. Nunc est libero, semper sit amet ante sit amet, dapibus pellentesque nibh. Aliquam vehicula sollicitudin felis, eu convallis magna pellentesque non. Integer consequat facilisis mauris et venenatis.
+                                </Navbar.Text>
+                            </Collapse>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
