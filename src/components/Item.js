@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
 import { Media, Form, InputGroup } from 'react-bootstrap';
+import ModalConfirm from './ModalConfirm';
 
 class Item extends Component {
     constructor(props) {
@@ -8,7 +9,8 @@ class Item extends Component {
         this.state = {
             name: '',
             purchased: false,
-            showForm: false
+            showForm: false,
+            displayModal: false
         };
     }
 
@@ -35,6 +37,16 @@ class Item extends Component {
     handleClick = (e) => {
         this.setState({
             showForm: !this.state.showForm
+        });
+    }
+
+    handleDelete = () => {
+        this.props.handleDeleteItem(this.props.item.id, this.props.index);
+    };
+
+    handleModalToggle = () => {
+        this.setState({
+            displayModal: !this.state.displayModal
         });
     }
 
@@ -91,9 +103,14 @@ class Item extends Component {
                             <i className="fas fa-gift" onClick={this.handleClick}></i> :
                             null
                         }
-                        <i className="far fa-trash-alt" onClick={() => {
-                            this.props.handleDeleteItem(this.props.item.id, this.props.index)
-                        }}></i>
+                        <ModalConfirm
+                            heading="Delete Item"
+                            body="Are you sure you want to delete this Item?"
+                            displayModal={this.state.displayModal}
+                            handleModalToggle={this.handleModalToggle}
+                            handleConfirmed={this.handleDelete}
+                        />
+                        <i className="far fa-trash-alt" onClick={this.handleModalToggle}></i>
                     </div>
                 }
             </Media>
