@@ -40,19 +40,39 @@ class Navigation extends Component {
                     </Button>
                 </Link>
             </Navbar.Text>
-        )
+        );
     }
 
     renderGetStarted = () => {
         return (
             <Navbar.Brand>Get Started</Navbar.Brand>
-        )
+        );
     }
 
     renderAboutText = () => {
         return (
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet nisl non tellus elementum consequat. Nunc est libero, semper sit amet ante sit amet, dapibus pellentesque nibh. Aliquam vehicula sollicitudin felis, eu convallis magna pellentesque non. Integer consequat facilisis mauris et venenatis.</p>
-        )
+            <React.Fragment>
+                <div className="downdown-item">
+                    A responsive application for wishlists. Visitors are able to create wishlists for themselves, organizations, etc. Once a wishlist has been created, you are able to add items, mark items as "gifted," search for wishlists, and delete/update wishlists.
+                </div>
+                <NavDropdown.Divider />
+                <div className="downdown-item"><h5>Authors</h5></div>
+                <div className="downdown-item">
+                    Molly Stone -
+                    <span>
+                        <a href="https://www.linkedin.com/in/mollycstone/"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/mstone89"><i class="fab fa-github-square"></i></a>
+                    </span>
+                </div>
+                <div className="downdown-item">
+                    Christian Kelsom-Martin -
+                    <span>
+                        <a href="https://www.linkedin.com/in/ckelsom-martin/"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/ekahialoha"><i class="fab fa-github-square"></i></a>
+                    </span>
+                </div>
+            </React.Fragment>
+        );
     }
 
     renderSearchbar = (classname) => {

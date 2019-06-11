@@ -84,6 +84,22 @@ h2 {
     margin: 10px auto;
 }
 
+.downdown-item > span i {
+    font-size: 1.3em;
+    margin-left: 5px;
+    color: var(--aubergine);;
+}
+
+.downdown-item > span i:hover {
+    color: var(--chartreuse);
+}
+
+@media (max-width: 996px) {
+    .downdown-item > span i {
+        color: var(--off-white);
+    }
+}
+
 /* CREATE NEW */
 
 .create-list-form {
