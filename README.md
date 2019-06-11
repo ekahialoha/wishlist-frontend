@@ -59,6 +59,9 @@ WishList uses two models: wishlists and items. Both are connected in a one-to-ma
 
  #### Wireframe & React Map
 
+![alt-text](https://github.com/ekahialoha/wishlist-frontend/blob/dev/wishlist_app-map.png "wishlist react map")
+
+![alt-text](https://github.com/ekahialoha/wishlist-frontend/blob/dev/wishlist_wireframe.png "wishlist wireframe")
 
 ### Authors
 - Molly Stone - [GitHub](https://github.com/mstone89) - [LinkedIn](https://www.linkedin.com/in/mollycstone/)
