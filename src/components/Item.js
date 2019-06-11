@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
-import { Media } from 'react-bootstrap';
+import { Media, Form, InputGroup } from 'react-bootstrap';
 
 class Item extends Component {
     constructor(props) {
@@ -70,16 +70,20 @@ class Item extends Component {
                     }
                 {this.state.showForm ?
                     <React.Fragment>
-                        <form onSubmit={this.handleSubmit}>
-                            <input
-                                required
-                                type="text"
-                                onChange={this.handleChanges}
-                                value={this.state.name}
-                                placeholder="Enter your Name"
-                            />
-                            <Button type="submit">Go</Button>
-                        </form>
+                        <Form onSubmit={this.handleSubmit}>
+                            <InputGroup>
+                                <Form.Control
+                                    required
+                                    type="text"
+                                    onChange={this.handleChanges}
+                                    value={this.state.name}
+                                    placeholder="Enter your Name"
+                                />
+                                <InputGroup.Append>
+                                    <Button type="submit" className="btn create-btn">Gift</Button>
+                                </InputGroup.Append>
+                            </InputGroup>
+                        </Form>
                         <i className="far fa-window-close" onClick={this.handleClick}></i>
                     </React.Fragment> :
                     <div>

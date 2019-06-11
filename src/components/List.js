@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Item from './Item';
 import NewItem from './NewItem';
 import { Redirect, Link } from 'react-router-dom';
-import { Form, Button, Container } from 'react-bootstrap';
+import { Form, Button, Container, InputGroup } from 'react-bootstrap';
 
 const API_URI = process.env.REACT_APP_BACKEND_URI;
 
@@ -101,15 +101,25 @@ class List extends Component {
     renderEditForm = () => {
         return (
             <div>
-                <Form onSubmit={this.handleEditListName}>
-                    <Form.Group>
-                        <Form.Control type="text" placeholder={this.state.list.name} value={this.state.name} onChange={this.handleChanges}/>
-                    </Form.Group>
-                    <Button type="submit"><i className="far fa-check-square"></i></Button>
-                </Form>
                 <i className="far fa-window-close" onClick={this.toggleEditing}></i>
+                <Form onSubmit={this.handleEditListName}>
+                    <Form.Group className="mx-4">
+                        <InputGroup>
+                            <Form.Control
+                                required
+                                type="text"
+                                placeholder={this.state.list.name}
+                                value={this.state.name}
+                                onChange={this.handleChanges}
+                            />
+                            <InputGroup.Append>
+                                <Button type="submit" className="btn create-btn"><i className="far fa-check-square"></i></Button>
+                            </InputGroup.Append>
+                        </InputGroup>
+                    </Form.Group>
+                </Form>
             </div>
-        )
+        );
     }
 
     handleEditListName = (e) => {

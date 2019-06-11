@@ -95,9 +95,10 @@ h2 {
 .create-btn {
     background-color: var(--yale-blue);
     border: none;
+    color: white;
 }
 
-.fa-plus, .fas {
+.fa-plus, .fa-caret-up, .fa-check-square {
     color: white;
 }
 
