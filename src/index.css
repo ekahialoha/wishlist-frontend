@@ -233,3 +233,23 @@ i:visited {
     background-color: var(--aubergine);
     color: white;
 }
+
+/* DESKTOP VIEW */
+
+.desktop-new-list-btn {
+    padding: 16px;
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 1.5em;
+    letter-spacing: .05em;
+}
+
+.desktop-searchbar {
+    position: absolute;
+    right: 50px;
+}
+
+.desktop-creators {
+    height: 41px;
+    margin: auto 22px;
+    color: var(--off-white) !important;
+}
