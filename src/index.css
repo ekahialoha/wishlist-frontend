@@ -121,6 +121,7 @@ h2 {
 }
 
 .searchResults > div.media > a {
+    color: black;
 }
 
 .searchResults > div.media {
@@ -135,10 +136,6 @@ h2 {
 .searchResults > div.media:first-of-type {
     border-top: 1px solid var(--aubergine);
     margin-top: .6em;
-}
-
-.searchResults > div.media:hover  {
-    background: #666666;
 }
 
 .searchResults > div.media > a  > div.media-body {
@@ -222,6 +219,10 @@ i:visited {
 
 .item-container i {
     padding-left: 5px;
+}
+
+.gifted-by {
+    font-size: .9em;
 }
 
 /* NEW ITEM */

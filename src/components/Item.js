@@ -47,6 +47,7 @@ class Item extends Component {
                             <img className="grayscale" src={this.props.item.image} alt={this.props.item.name} />
                             <Media.Body>
                                 <del>{this.props.item.name}</del>
+                                <p className="gifted-by">Gifted by: {this.props.item.purchased_by}</p>
                             </Media.Body>
                         </React.Fragment>
                          :
@@ -61,6 +62,7 @@ class Item extends Component {
                     <React.Fragment>
                         <form onSubmit={this.handleSubmit}>
                             <input
+                                required
                                 type="text"
                                 onChange={this.handleChanges}
                                 value={this.state.name}
