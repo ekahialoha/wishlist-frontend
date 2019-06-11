@@ -39,7 +39,7 @@ class Item extends Component {
     }
 
     componentDidUpdate = (prevProps) => {
-        if (prevProps.rand != this.props.rand) {
+        if (prevProps.rand !== this.props.rand) {
             this.setState({
                 name: '',
                 purchased: false,
