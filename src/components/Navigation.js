@@ -26,6 +26,41 @@ class Navigation extends Component {
         });
     }
 
+    renderCreateWishlistBtn = (classname) => {
+        return (
+            <Navbar.Text>
+                <Link to="/new">
+                    <Button
+                        block
+                        size="lg"
+                        className={classname}
+                        onClick={() => this.handleNavToggle(false)}
+                    >
+                        Create WishList
+                    </Button>
+                </Link>
+            </Navbar.Text>
+        )
+    }
+
+    renderGetStarted = () => {
+        return (
+            <Navbar.Brand>Get Started</Navbar.Brand>
+        )
+    }
+
+    renderAboutText = () => {
+        return (
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet nisl non tellus elementum consequat. Nunc est libero, semper sit amet ante sit amet, dapibus pellentesque nibh. Aliquam vehicula sollicitudin felis, eu convallis magna pellentesque non. Integer consequat facilisis mauris et venenatis.</p>
+        )
+    }
+
+    renderSearchbar = (classname) => {
+        return (
+            <Navbar.Text className={classname}><Search handleNavToggle={this.handleNavToggle} /></Navbar.Text>
+        )
+    }
+
     render() {
         return (
             <div>
@@ -35,31 +70,20 @@ class Navigation extends Component {
                         expanded={this.state.expanded}
                         onToggle={this.handleNavToggle}
                     >
-                        <Navbar.Brand>Get Started</Navbar.Brand>
+                        {this.renderGetStarted()}
                         <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav>
-                                <Navbar.Text><Search handleNavToggle={this.handleNavToggle} /></Navbar.Text>
-                                <Navbar.Text>
-                                    <Link to="/new">
-                                        <Button
-                                            block
-                                            size="lg"
-                                            className="new-list-btn"
-                                            onClick={() => this.handleNavToggle(false)}
-                                        >
-                                            Create WishList
-                                        </Button>
-                                    </Link>
-                                </Navbar.Text>
+                                {this.renderSearchbar()}
+                                {this.renderCreateWishlistBtn("new-list-btn")}
                                 <Navbar.Text>
                                     <Button block onClick={this.toggleAbout}>About</Button>
                                 </Navbar.Text>
-                                    <Collapse in={this.state.aboutOpen}>
-                                        <Navbar.Text className="about">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet nisl non tellus elementum consequat. Nunc est libero, semper sit amet ante sit amet, dapibus pellentesque nibh. Aliquam vehicula sollicitudin felis, eu convallis magna pellentesque non. Integer consequat facilisis mauris et venenatis.
-                                        </Navbar.Text>
-                                    </Collapse>
+                                <Collapse in={this.state.aboutOpen}>
+                                    <Navbar.Text className="about">
+                                        {this.renderAboutText()}
+                                    </Navbar.Text>
+                                </Collapse>
                             </Nav>
                         </Navbar.Collapse>
                     </Navbar>
@@ -69,26 +93,19 @@ class Navigation extends Component {
                         expand="lg"
                         expanded={this.state.expanded}
                         onToggle={this.handleNavToggle}
+                        variant="dark"
                     >
-                        <Navbar.Brand>Get Started</Navbar.Brand>
-                        <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
+                        {this.renderGetStarted()}
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav>
-                                <Navbar.Text>
-                                    <Link to="/new">
-                                        <Button
-                                            size="lg"
-                                            className="desktop-new-list-btn"
-                                            onClick={() => this.handleNavToggle(false)}
-                                        >
-                                            Create WishList
-                                        </Button>
-                                    </Link>
-                                </Navbar.Text>
-                                <NavDropdown className="desktop-about" title="About">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet nisl non tellus elementum consequat. Nunc est libero, semper sit amet ante sit amet, dapibus pellentesque nibh. Aliquam vehicula sollicitudin felis, eu convallis magna pellentesque non. Integer consequat facilisis mauris et <a target="_blank" href="https://www.linkedin.com/in/molly-stone-profile/">venenatis</a>.
+                                {this.renderCreateWishlistBtn("desktop-new-list-btn")}
+                                <NavDropdown
+                                    className="desktop-about"
+                                    title="About"
+                                >
+                                    {this.renderAboutText()}
                                 </NavDropdown>
-                                <Navbar.Text className="desktop-searchbar"><Search handleNavToggle={this.handleNavToggle} /></Navbar.Text>
+                                {this.renderSearchbar("desktop-searchbar")}
                             </Nav>
                         </Navbar.Collapse>
                     </Navbar>
