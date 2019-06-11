@@ -21,11 +21,11 @@ class ModalConfirm extends Component {
                 </Modal.Body>
                 <Modal.Footer>
                     <Button
-                        variant="secondary"
+                        className="create-btn"
                         onClick={this.props.handleModalToggle}
                     >Cancel</Button>
                     <Button
-                        variant="primary"
+                        className="search-button"
                         onClick={this.handleConfirmed}
                     >Confirm</Button>
                 </Modal.Footer>
