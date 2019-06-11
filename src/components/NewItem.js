@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Button, Card } from 'react-bootstrap';
+import { Form, Button, Card, Collapse } from 'react-bootstrap';
 
 class NewItem extends Component {
     constructor(props) {
@@ -55,9 +55,17 @@ class NewItem extends Component {
         return (
                 <Card>
                     <Card.Header onClick={this.handleShowForm}>
-                        <span>Add New Item <i className="fas fa-caret-down"></i></span>
+                        <span>
+                        Add New Item
+                        {this.state.showForm ?
+                            <i className="fas fa-caret-up"></i>
+                            :
+                            <i className="fas fa-caret-down"></i>
+                        }
+                        </span>
+
                     </Card.Header>
-                    {this.state.showForm ?
+                    <Collapse in={this.state.showForm}>
                         <Card.Body>
                             <Form onSubmit={this.handleSubmit}>
                                 <Form.Group>
@@ -92,8 +100,8 @@ class NewItem extends Component {
                                     <i className="fas fa-plus"></i>
                                 </Button>
                             </Form>
-                        </Card.Body> :
-                        null }
+                        </Card.Body>
+                    </Collapse>
                 </Card>
         );
     }
