@@ -14,7 +14,8 @@ class Navigation extends Component {
 
     handleNavToggle = (expand) => {
         this.setState({
-            expanded: expand
+            expanded: expand,
+            aboutOpen: expand === false ? false : this.state.aboutOpen
         });
     }
 
