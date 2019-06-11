@@ -34,6 +34,36 @@ WishList uses two models: wishlists and items. Both are connected in a one-to-ma
 7. Worked through frontend components and CRUD functionality.
 8. Implemented React Bootstrap and custom CSS to style app.
 
+#### User Stories
+ > As a user, I should be able to edit a wishlist.
+
+ > As a user, I can create a new item for a wishlist.
+
+ > As a user, I can delete an item from a wishlist
+
+ > As a user, I should see a featured (random) wishlist on the homepage.
+
+ > As a user, I should be able to search for specific wishlists.
+
+ > As a user, when I search, I should see a list of wishlists showing the list name and description.
+
+ > As a user, when I click on a search result, I should only see that wishlist displayed with only those items visible.
+
+ > As a user, I should be able to create a wishlist.
+
+ > As a user, I should be able to delete a wishlist.
+
+ > As a user, I can edit an item on a wishlist.
+
+ > As a user, I can see all items on a wishlist.
+
+ #### Wireframe & React Map
+
+
+### Authors
+- Molly Stone - [GitHub](https://github.com/mstone89) - [LinkedIn](https://www.linkedin.com/in/mollycstone/)
+- Christian Kelsom-Martin - [GitHub](https://github.com/ekahialoha) - [LinkedIn](https://www.linkedin.com/in/ckelsom-martin/)
+
 
 ### Unsolved Problems
 
