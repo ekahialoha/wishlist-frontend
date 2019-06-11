@@ -7,7 +7,10 @@ The WishList app was created with:
 
 - Ruby on Rails
 - ReactJS
-- Uses [React Router](https://reacttraining.com/react-router/)
+- PostgresSQL
+- NodeJS
+- [React Router](https://reacttraining.com/react-router/)
+- [React Bootstrap](https://react-bootstrap.github.io/)
 
 This app is:
 
