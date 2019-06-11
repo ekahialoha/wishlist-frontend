@@ -60,15 +60,15 @@ class Navigation extends Component {
                 <div className="downdown-item">
                     Molly Stone -
                     <span>
-                        <a href="https://www.linkedin.com/in/mollycstone/"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/mstone89"><i class="fab fa-github-square"></i></a>
+                        <a href="https://www.linkedin.com/in/mollycstone/"><i className="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/mstone89"><i className="fab fa-github-square"></i></a>
                     </span>
                 </div>
                 <div className="downdown-item">
                     Christian Kelsom-Martin -
                     <span>
-                        <a href="https://www.linkedin.com/in/ckelsom-martin/"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/ekahialoha"><i class="fab fa-github-square"></i></a>
+                        <a href="https://www.linkedin.com/in/ckelsom-martin/"><i className="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/ekahialoha"><i className="fab fa-github-square"></i></a>
                     </span>
                 </div>
             </React.Fragment>
