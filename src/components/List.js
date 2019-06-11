@@ -112,7 +112,8 @@ class List extends Component {
         )
     }
 
-    handleEditListName = () => {
+    handleEditListName = (e) => {
+        e.preventDefault();
         let list = Object.assign(this.state.list);
         list.name = this.state.newName;
         fetch(`${API_URI}/lists/${this.state.list.id}`, {
@@ -125,9 +126,13 @@ class List extends Component {
         })
         .then(updatedList => updatedList.json())
         .then(jsonData => {
-            this.setState({
-                list: jsonData,
-                newName: ''
+            this.setState(prevState => {
+                prevState.list.name = jsonData.name
+                return {
+                    list: prevState.list,
+                    newName: '',
+                    editing: false
+                };
             });
         });
     }
