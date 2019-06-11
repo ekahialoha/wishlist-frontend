@@ -53,7 +53,7 @@ class Navigation extends Component {
         return (
             <React.Fragment>
                 <div className="downdown-item">
-                    A responsive application for wishlists. Visitors are able to create wishlists for themselves, organizations, etc. Once a wishlist has been created, you are able to add items, mark items as "gifted," search for wishlists, and delete/update wishlists.
+                    A responsive application for wishlists. Visitors are able to create wishlists for themselves, organizations, etc. Once a wishlist has been created, you are able to add/delete items, mark items as "gifted," search for wishlists, and delete/update wishlists.
                 </div>
                 <NavDropdown.Divider />
                 <div className="downdown-item"><h5>Authors</h5></div>
