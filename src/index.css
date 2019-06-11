@@ -69,8 +69,8 @@ h2 {
     color: white;
 }
 
-.navbar button:hover, .search-button:hover {
-    background-color: #30A4A0;
+.navbar button:hover, .search-button:hover, .navbar button:active, .search-button:active {
+    background-color: #30A4A0 !important;
 }
 
 .navbar-text > a:hover {
@@ -102,8 +102,8 @@ h2 {
     color: white;
 }
 
-.create-btn:hover {
-    background-color: #46697B;
+.create-btn:hover, .create-btn:active {
+    background-color: #46697B !important;
 }
 
 /* SEARCH RESULTS */
