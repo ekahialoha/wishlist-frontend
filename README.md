@@ -12,8 +12,8 @@ The WishList app was created with:
 This app is:
 
 - Deployed on [Heroku](https://the-wish-list-app.herokuapp.com/)
-- Hosted on Github
-[Frontend](https://github.com/ekahialoha/wishlist-frontend)
+- Hosted on Github:
+[Frontend](https://github.com/ekahialoha/wishlist-frontend)/
 [Api](https://github.com/ekahialoha/wishlist-api)
 
 
