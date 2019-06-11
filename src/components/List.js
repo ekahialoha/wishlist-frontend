@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Item from './Item';
 import NewItem from './NewItem';
+import ModalConfirm from './ModalConfirm';
 import { Redirect, Link } from 'react-router-dom';
 import { Form, Button, Container, InputGroup } from 'react-bootstrap';
 
@@ -16,7 +17,8 @@ class List extends Component {
             random: false,
             redirect: false,
             editing: false,
-            newName: ''
+            newName: '',
+            displayModal: false
         };
     }
 
@@ -196,6 +198,12 @@ class List extends Component {
         .catch(err => console.log('delete item err: ', err));
     }
 
+    handleModalToggle = () => {
+        this.setState({
+            displayModal: !this.state.displayModal
+        });
+    }
+
     render() {
 
         if (this.state.redirect === true) {
@@ -212,8 +220,22 @@ class List extends Component {
                         {this.state.editing ?
                             this.renderEditForm() :
                             <div>
-                                <i className="far fa-trash-alt" onClick={this.handleDelete}></i>
-                                {this.state.editing ? '' : <i className="fas fa-edit" onClick={this.toggleEditing}></i>}
+                                <i
+                                    className="far fa-trash-alt"
+                                    onClick={this.handleModalToggle}
+                                ></i>
+                                {this.state.editing ? '' :
+                                    <React.Fragment>
+                                        <ModalConfirm
+                                            heading="Delete Wish List"
+                                            body="Are you sure you want to delete this Wish List?"
+                                            displayModal={this.state.displayModal}
+                                            handleModalToggle={this.handleModalToggle}
+                                            handleConfirmed={this.handleDelete}
+                                        />
+                                        <i className="fas fa-edit" onClick={this.toggleEditing}></i>
+                                    </React.Fragment>
+                                }
                                 {this.props.location.pathname === '/' ?
                                 <Link to={path}>
                                     <h3 className="user-name">{this.state.list.name}</h3>
