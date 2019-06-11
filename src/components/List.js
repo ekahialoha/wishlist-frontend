@@ -148,7 +148,7 @@ class List extends Component {
     }
 
     handleCreateItem = (item) => {
-        fetch(`${API_URI}items/`, {
+        fetch(`${API_URI}/items/`, {
             body: JSON.stringify(item),
             method: 'POST',
             headers: {
