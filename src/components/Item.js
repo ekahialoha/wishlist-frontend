@@ -38,6 +38,16 @@ class Item extends Component {
         });
     }
 
+    componentDidUpdate = (prevProps) => {
+        if (prevProps.rand != this.props.rand) {
+            this.setState({
+                name: '',
+                purchased: false,
+                showForm: false
+            });
+        }
+    }
+
     render() {
         return (
             <Media className="item-container">

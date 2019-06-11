@@ -219,6 +219,7 @@ class List extends Component {
                                     item={item}
                                     handlePurchaser={this.handlePurchaser}
                                     handleDeleteItem={this.handleDeleteItem}
+                                    rand={this.props.rand}
                                 />
                             );
                         })}
