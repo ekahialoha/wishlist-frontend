@@ -248,8 +248,13 @@ i:visited {
     right: 50px;
 }
 
-.desktop-creators {
+.desktop-about {
     height: 41px;
     margin: auto 22px;
     color: var(--off-white) !important;
+}
+
+.dropdown-menu {
+    width: 500px;
+    padding: 20px;
 }

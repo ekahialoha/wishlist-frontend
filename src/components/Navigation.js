@@ -85,9 +85,8 @@ class Navigation extends Component {
                                         </Button>
                                     </Link>
                                 </Navbar.Text>
-                                <NavDropdown className="desktop-creators" title="Creators">
-                                    <NavDropdown.Item>Christian</NavDropdown.Item>
-                                    <NavDropdown.Item>Molly</NavDropdown.Item>
+                                <NavDropdown className="desktop-about" title="About">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet nisl non tellus elementum consequat. Nunc est libero, semper sit amet ante sit amet, dapibus pellentesque nibh. Aliquam vehicula sollicitudin felis, eu convallis magna pellentesque non. Integer consequat facilisis mauris et <a target="_blank" href="https://www.linkedin.com/in/molly-stone-profile/">venenatis</a>.
                                 </NavDropdown>
                                 <Navbar.Text className="desktop-searchbar"><Search handleNavToggle={this.handleNavToggle} /></Navbar.Text>
                             </Nav>
