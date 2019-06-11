@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// Components
+import Navigation from './components/Navigation';
+import SearchResults from './components/SearchResults';
+import List from './components/List';
+import CreateList from './components/CreateList';
+
+class App extends Component {
+    render() {
+        return (
+            <div>
+                <Router>
+                    <h1 className="logo"><Link to="/">WishList</Link></h1>
+                    <Navigation />
+                    <Switch>
+                        <Route exact path='/' component={(props) => <List rand={Math.random()} {...props} />}/>}/>
+                        <Route path='/new' component={CreateList} />
+                        <Route path='/view/:id' component={(props) => <List rand={Math.random()} {...props} />}/>} />
+                        <Route path='/search/:query' component={(props) => <SearchResults rand={Math.random()} {...props} />}/>} />
+                    </Switch>
+                </Router>
+            </div>
+        );
+    }
 }
 
 export default App;

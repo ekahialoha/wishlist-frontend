@@ -1,68 +1,73 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+WishList
+======
 
-## Available Scripts
+### Technologies Used
 
-In the project directory, you can run:
+The WishList app was created with:
 
-### `npm start`
+- Ruby on Rails
+- ReactJS
+- PostgresSQL
+- NodeJS
+- [React Router](https://reacttraining.com/react-router/)
+- [React Bootstrap](https://react-bootstrap.github.io/)
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This app is:
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+- Deployed on [Heroku](https://the-wish-list-app.herokuapp.com/)
+- Hosted on Github: [Frontend](https://github.com/ekahialoha/wishlist-frontend) / [Api](https://github.com/ekahialoha/wishlist-api)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### About This App
 
-### `npm run build`
+WishList uses two models: wishlists and items. Both are connected in a one-to-many relationship, where items are tied to lists. Visitors can create a wishlist, add desired items to wishlists, mark items as "gifted", search for wishlists, as well as delete/update wishlists.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+### Approach Taken
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Created user stories. Based on user stories, broke out functionality into small tasks.
+2. Created wireframe of app on desktop and mobile.
+3. Created React map to understand all of the components involved, how they would be related, and which would have state.
+4. Additionally, researched React Router and mapped out routes.
+5. Determined model tables, created seed data.
+6. Created full CRUD API with Ruby on Rails.
+7. Worked through frontend components and CRUD functionality.
+8. Implemented React Bootstrap and custom CSS to style app.
 
-### `npm run eject`
+#### User Stories
+ > As a user, I should be able to edit a wishlist.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+ > As a user, I can create a new item for a wishlist.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+ > As a user, I can delete an item from a wishlist
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+ > As a user, I should see a featured (random) wishlist on the homepage.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+ > As a user, I should be able to search for specific wishlists.
 
-## Learn More
+ > As a user, when I search, I should see a list of wishlists showing the list name and description.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+ > As a user, when I click on a search result, I should only see that wishlist displayed with only those items visible.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+ > As a user, I should be able to create a wishlist.
 
-### Code Splitting
+ > As a user, I should be able to delete a wishlist.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+ > As a user, I can edit an item on a wishlist.
 
-### Analyzing the Bundle Size
+ > As a user, I can see all items on a wishlist.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+ #### Wireframe & React Map
 
-### Making a Progressive Web App
+![alt-text](https://github.com/ekahialoha/wishlist-frontend/blob/dev/wishlist_app-map.png "wishlist react map")
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+![alt-text](https://github.com/ekahialoha/wishlist-frontend/blob/dev/wishlist_wireframe.png "wishlist wireframe")
 
-### Advanced Configuration
+### Authors
+- Molly Stone - [GitHub](https://github.com/mstone89) - [LinkedIn](https://www.linkedin.com/in/mollycstone/)
+- Christian Kelsom-Martin - [GitHub](https://github.com/ekahialoha) - [LinkedIn](https://www.linkedin.com/in/ckelsom-martin/)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
-### Deployment
+### Unsolved Problems
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+On mobile, the edit and delete icons change color permanently after clicking on them when viewing a wishlist. On desktop, these icons change color only on hover, as intended. On mobile, these icons should not change color permanently.
