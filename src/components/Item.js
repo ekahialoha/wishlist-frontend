@@ -70,7 +70,7 @@ class Item extends Component {
                             />
                             <Button type="submit">Go</Button>
                         </form>
-                        <Button onClick={this.handleClick}>Cxl</Button>
+                        <i className="far fa-window-close" onClick={this.handleClick}></i>
                     </React.Fragment> :
                     <div>
                         {!this.props.item.purchased ?
